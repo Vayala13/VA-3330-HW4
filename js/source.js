@@ -42,6 +42,29 @@ async function load(){
     document.querySelector("#artist-name").textContent = artist.name;
     document.querySelector(".artist-image img").src = artist.images[0].url;
 
+    // Popular: 3 tracks
+    const trackIDs = [trackID1, trackID2, trackID3];
+    const trackElements = document.querySelectorAll(".track");
+
+    trackIDs.forEach(async (trackID, index) => {
+        const response = await fetch(
+            `https://api.spotify.com/v1/tracks/${trackID}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            }
+        );
+        const track = await response.json();
+        const trackElement = trackElements[index];
+
+        trackElement.querySelector("img").src = track.album.images[0].url;
+        trackElement.querySelector(".track-title").textContent = track.name;
+        trackElement.querySelector(".track-album").textContent = track.album.name;
+        trackElement.querySelector(".track-number").textContent = track.track_number;
+        trackElement.querySelector(".track-duration").textContent = convertMsToMinSec(track.duration_ms);
+    });
+
 
 }
 load();
