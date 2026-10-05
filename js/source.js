@@ -13,11 +13,11 @@ function convertMsToMinSec(ms) {
 
 
 // IDs and secret token should come from Spotify
-localStorage.setItem("artist_id", "");
-localStorage.setItem("access_token", "");
-localStorage.setItem("track_id_1", "");
-localStorage.setItem("track_id_2", "");
-localStorage.setItem("track_id_3", "");
+localStorage.setItem("artist_id", "5K4W6rqBFWDnAN6FQUkS6x");
+localStorage.setItem("access_token", "BQAuY4_DEuSDUczrdFLJWUA95J1pFrUVIQxFsP_fXsOnYJkh6-JIHPOEZ3vctllJMuqNC4xvpNDuu1gBjLPAqECvvaTI7NS1XES0FtkDUE1FUAef4r-p030-FdYdLjyGdhYLUOHzjyBP");
+localStorage.setItem("track_id_1", "5TRPicyLGbAF2LGBFbHGvO");
+localStorage.setItem("track_id_2", "4EWCNWgDS8707fNSZ1oaA5");
+localStorage.setItem("track_id_3", "0j2T0R9dR9qdJYsB7ciXhf");
 
 
 function load(){
