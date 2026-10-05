@@ -20,21 +20,29 @@ localStorage.setItem("track_id_2", "4EWCNWgDS8707fNSZ1oaA5");
 localStorage.setItem("track_id_3", "0j2T0R9dR9qdJYsB7ciXhf");
 
 
-function load(){
-    
+async function load(){
+
     let artistID = localStorage.getItem("artist_id");
     let accessToken = localStorage.getItem("access_token");
     let trackID1 = localStorage.getItem("track_id_1");
     let trackID2 = localStorage.getItem("track_id_2");
     let trackID3 = localStorage.getItem("track_id_3");
-    
+
+    // Artist: name and image
+    const response = await fetch(
+        `https://api.spotify.com/v1/artists/${artistID}`,
+        {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        }
+    );
+    const artist = await response.json();
+
+    document.querySelector("#artist-name").textContent = artist.name;
+    document.querySelector(".artist-image img").src = artist.images[0].url;
 
 
-
-
-
-
-    
 }
 load();
 
